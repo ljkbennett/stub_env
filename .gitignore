@@ -1,0 +1,4 @@
+.ruby-gemset
+.ruby-version
+Gemfile.lock
+*.gem
