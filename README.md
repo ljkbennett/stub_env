@@ -22,10 +22,53 @@ RSpec.configure do |config|
 end
 ```
 
-Then in your examples use:
+There are 2 possible usages. The first is to stub a single value:
 
 ```
   stub_env('key', 'value')
+
+  puts ENV['key'] # => "value"
+```
+
+These will work in series, so you can stub multiple values by making multiple calls:
+
+```
+  stub_env('key1', 'value1')
+  stub_env('key2', 'value2')
+
+  puts ENV['key1'] # => "value1"
+  puts ENV['key2'] # => "value2"
+```
+
+The second method is to stub multiple values using a hash:
+
+```
+  stub_env({'key' => 'value', 'key2' => 'value2'})
+
+  puts ENV['key1'] # => "value1"
+  puts ENV['key2'] # => "value2"
+```
+
+You can also use this multiple times, and in combination with the other method:
+
+```
+  stub_env({'key1' => 'value1', 'key2' => 'value2'})
+  stub_env('key3', 'value3')
+  stub_env({'key4' => 'value4'})
+
+  puts ENV['key1'] # => "value1"
+  puts ENV['key2'] # => "value2"
+  puts ENV['key3'] # => "value3"
+  puts ENV['key4'] # => "value4"
 ```
 
 All ENV values not stubbed will return their original values.
+
+```
+  # Given ENV['unstubbed_key'] = 'unstubbed_value'
+  stub_env('key', 'value')
+
+  puts ENV['key'] # => "value"
+  puts ENV['unstubbed_key'] # => "unstubbed_value"
+
+```
