@@ -12,17 +12,19 @@ module StubEnv
 
     private
 
+    STUBBED_KEY = '__STUBBED__'
+
     def add_stubbed_value key, value
       allow(ENV).to receive(:[]).with(key).and_return(value) 
     end
 
     def env_stubbed?
-      ENV.respond_to?(:stubbed?) && ENV.stubbed?
+      ENV[STUBBED_KEY]
     end
 
     def init_stub
-      allow(ENV).to receive(:stubbed?).and_return(true)
       allow(ENV).to receive(:[]).and_call_original
+      add_stubbed_value(STUBBED_KEY, true)
     end
     
   end

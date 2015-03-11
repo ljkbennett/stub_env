@@ -1,5 +1,3 @@
 require 'stub_env'
 
-RSpec.configure do |config|
-
-end
+Dir[("./spec/support/**/*.rb")].each { |f| require f }
