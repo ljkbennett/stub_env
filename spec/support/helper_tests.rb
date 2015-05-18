@@ -53,7 +53,7 @@ shared_examples 'stub_env tests' do
     end
   end
 
-  describe 'with existing environment variables' do
+  context 'with existing environment variables' do
     before :each do
       ENV['TO_OVERWRITE'] = 'to overwrite'
     end
