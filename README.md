@@ -28,6 +28,7 @@ There are 2 possible usages. The first is to stub a single value:
   stub_env('key', 'value')
 
   puts ENV['key'] # => "value"
+  puts ENV.fetch('key') # => "value"
 ```
 
 These will work in series, so you can stub multiple values by making multiple calls:
@@ -38,6 +39,8 @@ These will work in series, so you can stub multiple values by making multiple ca
 
   puts ENV['key1'] # => "value1"
   puts ENV['key2'] # => "value2"
+  puts ENV.fetch('key1') # => "value1"
+  puts ENV.fetch('key2') # => "value2"
 ```
 
 The second method is to stub multiple values using a hash:
@@ -47,6 +50,8 @@ The second method is to stub multiple values using a hash:
 
   puts ENV['key1'] # => "value1"
   puts ENV['key2'] # => "value2"
+  puts ENV.fetch('key1') # => "value1"
+  puts ENV.fetch('key2') # => "value2"
 ```
 
 You can also use this multiple times, and in combination with the other method:
@@ -60,6 +65,10 @@ You can also use this multiple times, and in combination with the other method:
   puts ENV['key2'] # => "value2"
   puts ENV['key3'] # => "value3"
   puts ENV['key4'] # => "value4"
+  puts ENV.fetch('key1') # => "value1"
+  puts ENV.fetch('key2') # => "value2"
+  puts ENV.fetch('key3') # => "value3"
+  puts ENV.fetch('key4') # => "value4"
 ```
 
 All ENV values not stubbed will return their original values.
@@ -70,5 +79,7 @@ All ENV values not stubbed will return their original values.
 
   puts ENV['key'] # => "value"
   puts ENV['unstubbed_key'] # => "unstubbed_value"
+  puts ENV.fetch('key') # => "value"
+  puts ENV.fetch('unstubbed_key') # => "unstubbed_value"
 
 ```
