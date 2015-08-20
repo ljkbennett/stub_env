@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |gem|
   gem.name    = "stub_env"
-  gem.version = "1.0.3"
+  gem.version = "1.0.4"
 
   gem.authors     = ["Liam Bennett"]
   gem.email       = ["liam@littleowllabs.com"]
