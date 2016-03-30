@@ -16,7 +16,7 @@ module StubEnv
     def add_stubbed_value(key, value)
       allow(ENV).to receive(:[]).with(key).and_return(value)
       allow(ENV).to receive(:fetch).with(key).and_return(value)
-      allow(ENV).to receive(:fetch).with(key, anything()) do |overridden, default_val|
+      allow(ENV).to receive(:fetch).with(key, anything()) do |_, default_val|
         value || default_val
       end
     end
