@@ -13,8 +13,8 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency "rspec", ">= 2.0", "< 4.0"
 
-  gem.add_development_dependency "bundler", "~> 1.0"
-  gem.add_development_dependency "rake", "~> 11.0"
+  gem.add_development_dependency "bundler", "~> 2.0"
+  gem.add_development_dependency "rake", "~> 12.0"
 
   gem.files      = `git ls-files`.split($\)
   gem.test_files = gem.files.grep(/^(spec)/)
