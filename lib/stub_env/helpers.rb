@@ -14,6 +14,7 @@ module StubEnv
     STUBBED_KEY = '__STUBBED__'
 
     def add_stubbed_value(key, value)
+      key = key.to_s
       allow(ENV).to receive(:[]).with(key).and_return(value)
       allow(ENV).to receive(:fetch).with(key).and_return(value)
       allow(ENV).to receive(:fetch).with(key, anything()) do |_, default_val|
